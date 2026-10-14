@@ -17,10 +17,10 @@
 </div><div class="modal" id="modal"><div class="sheet"><div class="sheet-head"><h3 id="modal-title">详情</h3><button class="close" id="modal-close">×</button></div><div id="modal-content"></div></div></div><div class="toast" id="toast"></div>
 <script>
 const teams=[
- {id:'east',name:'东岳泰山队',short:'东岳泰山',tagline:'泰山之巅，勇者无畏',color:'#d92730',crest:'▲',record:'球队资料待补充'},
- {id:'west',name:'西岳华山队',short:'西岳华山',tagline:'华山论剑，快意争锋',color:'#f2eee4',crest:'▲',record:'球队资料待补充'},
- {id:'south',name:'南岳衡山队',short:'南岳衡山',tagline:'南岳恒风，势不可挡',color:'#d92730',crest:'▲',record:'球队资料待补充'},
- {id:'north',name:'北岳恒山队',short:'北岳恒山',tagline:'恒山之固，攻守兼备',color:'#f2eee4',crest:'▲',record:'球队资料待补充'}
+ {id:'east',name:'东岳泰山队',short:'东岳泰山',tagline:'泰山之巅，勇者无畏',color:'#d92730',crest:'assets/crest-east.png',record:'球队资料待补充'},
+ {id:'west',name:'西岳华山队',short:'西岳华山',tagline:'华山论剑，快意争锋',color:'#f2eee4',crest:'assets/crest-west.png',record:'球队资料待补充'},
+ {id:'south',name:'南岳衡山队',short:'南岳衡山',tagline:'南岳恒风，势不可挡',color:'#d92730',crest:'assets/crest-south.png',record:'球队资料待补充'},
+ {id:'north',name:'北岳恒山队',short:'北岳恒山',tagline:'恒山之固，攻守兼备',color:'#f2eee4',crest:'assets/crest-north.png',record:'球队资料待补充'}
 ];
 const matches=[
  {date:'10月18日',day:'周日',time:'7:30',round:'小组赛',label:'第1轮',a:'east',b:'west',venue:'坦途体育场',kitA:'红色',kitB:'白色',scoreA:null,scoreB:null},
@@ -34,7 +34,7 @@ const matches=[
 ];
 let standings=[{id:'east',points:0,gf:0,ga:0},{id:'west',points:0,gf:0,ga:0},{id:'south',points:0,gf:0,ga:0},{id:'north',points:0,gf:0,ga:0}];
 const scorers=[{name:'球员一',team:'east',goals:0},{name:'球员二',team:'west',goals:0},{name:'球员三',team:'south',goals:0},{name:'球员四',team:'north',goals:0}];
-const teamBy=id=>teams.find(t=>t.id===id);const crest=(t,size=32)=>`<span style="width:${size}px;height:${size}px;flex-shrink:0;border:1px solid ${t.color};border-radius:50%;display:grid;place-items:center;color:${t.color};font-size:${Math.round(size*.52)}px;background:#0b1016">${t.crest}</span>`;
+const teamBy=id=>teams.find(t=>t.id===id);const crest=(t,size=32)=>`<img class="crest" src="${t.crest}" alt="${t.name}" style="width:${size}px;height:${size}px">`;
 function kitTag(color){return `<span class="kit-tag ${color==='红色'?'red':'white'}">▰ ${color}球衣</span>`}
 function matchCard(m){const a=teamBy(m.a),b=teamBy(m.b),played=Number.isInteger(m.scoreA)&&Number.isInteger(m.scoreB);return `<div class="match ${played?'match-played':''}"><div class="match-top"><span>${m.date} · ${m.day}</span><span>${m.round} / ${m.label}</span></div><div class="versus"><div class="team-side">${crest(a,31)}<span class="team-name">${a.short}<br>${kitTag(m.kitA)}</span></div><div class="vs">${played?`<div class="score-display"><span class="score-num">${m.scoreA}</span><span class="score-label">比分</span><span class="score-num">${m.scoreB}</span></div><span class="result-badge">已完赛</span>`:'VS'}</div><div class="team-side">${crest(b,31)}<span class="team-name">${b.short}<br>${kitTag(m.kitB)}</span></div></div><div class="match-bottom"><span class="muted">◷ ${m.time}　·　${m.venue}</span><button class="link-btn" data-match="${matches.indexOf(m)}">${played?'查看比分 ↗':'比赛详情 ↗'}</button></div></div>`}
 function renderMatches(round='全部',target='schedule-list'){let arr=matches.filter(m=>round==='全部'||m.round===round);if(target==='home-matches')arr=matches.slice(0,2);document.getElementById(target).innerHTML=arr.map(matchCard).join('')||'<div class="empty">暂无该阶段赛程</div>'}
