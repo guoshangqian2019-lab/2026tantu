@@ -41,20 +41,20 @@ const matches=[
  {date:'10月25日',day:'周日',time:'8:45',round:'小组赛',label:'第2轮',a:'north',b:'west',venue:'霞街球场',kitA:'白色',kitB:'红色',scoreA:1,scoreB:3,liveUrl:'https://h5static.xiaoqiumi.com/littleFans/index.html?ver=v1.0.305-rls72#/pagesLive/MatchDetails/index?MatchId=401166456&sportType=0&shareid=1755596613228994562&v=ios2.0.6'},
  {date:'10月26日',day:'周一',time:'7:30',round:'小组赛',label:'第3轮',a:'south',b:'west',venue:'霞街球场',kitA:'红色',kitB:'白色',scoreA:2,scoreB:1,liveUrl:'https://h5static.xiaoqiumi.com/littleFans/index.html?ver=v1.0.305-rls72#/pagesLive/MatchDetails/index?MatchId=401166918&sportType=0&shareid=1755596613228994562&v=ios2.0.6'},
  {date:'10月26日',day:'周一',time:'8:45',round:'小组赛',label:'第3轮',a:'north',b:'east',venue:'霞街球场',kitA:'红色',kitB:'白色',scoreA:2,scoreB:2,liveUrl:'https://h5static.xiaoqiumi.com/littleFans/index.html?ver=v1.0.305-rls72#/pagesLive/MatchDetails/index?MatchId=401166919&sportType=0&shareid=1755596613228994562&v=ios2.0.6'},
- {date:'10月28日',day:'周三',time:'19:00',round:'季军赛',label:'',a:'west',b:'north',venue:'霞街场',kitA:'红色',kitB:'白色',scoreA:null,scoreB:null},
- {date:'10月28日',day:'周三',time:'20:30',round:'决赛',label:'',a:'east',b:'south',venue:'霞街场',kitA:'红色',kitB:'白色',scoreA:null,scoreB:null}
+ {date:'10月28日',day:'周三',time:'19:00',round:'季军赛',label:'',a:'west',b:'north',venue:'霞街场',kitA:'红色',kitB:'白色',scoreA:4,scoreB:6},
+ {date:'10月28日',day:'周三',time:'20:30',round:'决赛',label:'',a:'east',b:'south',venue:'霞街场',kitA:'红色',kitB:'白色',scoreA:0,scoreB:3}
 ];
 let standings=[{id:'east',points:0,gf:0,ga:0},{id:'west',points:0,gf:0,ga:0},{id:'south',points:0,gf:0,ga:0},{id:'north',points:0,gf:0,ga:0}];
-const scorers=[{name:'烂同',team:'south',goals:3},{name:'帝轩',team:'east',goals:3},{name:'亚梁',team:'south',goals:2},{name:'观静',team:'south',goals:2},{name:'鸡宇',team:'west',goals:2},{name:'吊烧鸡',team:'north',goals:2},{name:'亚毅',team:'south',goals:1},{name:'春旭',team:'east',goals:1},{name:'明总',team:'east',goals:1},{name:'二龙',team:'east',goals:1},{name:'大尚',team:'west',goals:1},{name:'嘉健',team:'west',goals:1},{name:'汉辉',team:'west',goals:1},{name:'国振',team:'north',goals:1},{name:'鬼玉',team:'north',goals:1},{name:'上军',team:'north',goals:1},{name:'亚和',team:'north',goals:1}];
+const scorers=[{name:'烂同',team:'south',goals:4},{name:'帝轩',team:'east',goals:3},{name:'亚梁',team:'south',goals:3},{name:'观静',team:'south',goals:2},{name:'鸡宇',team:'west',goals:5},{name:'吊烧鸡',team:'north',goals:3},{name:'亚毅',team:'south',goals:2},{name:'春旭',team:'east',goals:1},{name:'明总',team:'east',goals:1},{name:'二龙',team:'east',goals:1},{name:'大尚',team:'west',goals:1},{name:'嘉健',team:'west',goals:1},{name:'汉辉',team:'west',goals:1},{name:'国振',team:'north',goals:2},{name:'鬼玉',team:'north',goals:2},{name:'上军',team:'north',goals:1},{name:'亚和',team:'north',goals:4},{name:'二胜',team:'west',goals:1}];
 const awards=[
- {label:'冠军',cls:'champion',winner:'',team:''},
- {label:'亚军',cls:'runnerup',winner:'',team:''},
- {label:'第三名',cls:'third',winner:'',team:''},
- {label:'第四名',winner:'',team:''},
- {label:'最佳射手',note:'金靴奖',winner:'',team:''},
- {label:'最佳守门员',winner:'',team:''},
- {label:'最佳后卫',winner:'',team:''},
- {label:'最佳中场',winner:'',team:''}
+ {label:'冠军',cls:'champion',winner:'南岳衡山队',team:''},
+ {label:'亚军',cls:'runnerup',winner:'东岳泰山队',team:''},
+ {label:'第三名',cls:'third',winner:'北岳恒山队',team:''},
+ {label:'第四名',winner:'西岳华山队',team:''},
+ {label:'最佳射手',note:'金靴奖',winner:'鸡宇',team:'west'},
+ {label:'最佳守门员',winner:'阿艺',team:'south'},
+ {label:'最佳后卫',winner:'亚毅',team:'south'},
+ {label:'最佳中场',winner:'烂同',team:'south'}
 ];
 const teamBy=id=>teams.find(t=>t.id===id);const crest=(t,size=32)=>`<img class="crest" src="${t.crest}" alt="${t.name}" style="width:${size}px;height:${size}px">`;
 const NUM=['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟','1️⃣1️⃣','1️⃣2️⃣'];
